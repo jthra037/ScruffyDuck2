@@ -1,8 +1,8 @@
 # Visual studio shit
-[Dd]ebug
-[Bb]uilds
+[Dd]ebug/
+[Bb]uilds/
+[Ii]nt/
 .vs/
-*.pdb
 
 # Prerequisites
 *.d
