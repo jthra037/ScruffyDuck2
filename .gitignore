@@ -38,4 +38,4 @@
 *.app
 
 # Exception for SFML
-!**/SFML/*
+!**/SFML/**
