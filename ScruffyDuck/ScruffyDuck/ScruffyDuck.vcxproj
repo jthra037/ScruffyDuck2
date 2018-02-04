@@ -71,19 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>Int\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>Int\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>Int\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>Int\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
