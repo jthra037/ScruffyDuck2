@@ -5,7 +5,7 @@
 .vs/
 
 # Exception for SFML
-!/SFML/
+!*/SFML/*.lib
 
 # Prerequisites
 *.d
