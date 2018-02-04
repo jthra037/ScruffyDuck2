@@ -4,6 +4,9 @@
 [Ii]nt/
 .vs/
 
+# Exception for SFML
+!/SFML/
+
 # Prerequisites
 *.d
 
