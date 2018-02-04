@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScruffyDuck", "ScruffyDuck\ScruffyDuck.vcxproj", "{A94A8693-2935-47B1-80E0-964C902B1BBD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insomnomicon", "Insomnomicon\Insomnomicon.vcxproj", "{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Debug|x64.ActiveCfg = Debug|x64
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Debug|x64.Build.0 = Debug|x64
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Debug|x86.ActiveCfg = Debug|Win32
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Debug|x86.Build.0 = Debug|Win32
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Release|x64.ActiveCfg = Release|x64
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Release|x64.Build.0 = Release|x64
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Release|x86.ActiveCfg = Release|Win32
-		{A94A8693-2935-47B1-80E0-964C902B1BBD}.Release|x86.Build.0 = Release|Win32
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Debug|x64.ActiveCfg = Debug|x64
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Debug|x64.Build.0 = Debug|x64
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Debug|x86.Build.0 = Debug|Win32
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Release|x64.ActiveCfg = Release|x64
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Release|x64.Build.0 = Release|x64
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Release|x86.ActiveCfg = Release|Win32
+		{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

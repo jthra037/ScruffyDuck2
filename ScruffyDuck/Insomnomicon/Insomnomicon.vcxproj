@@ -20,9 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A94A8693-2935-47B1-80E0-964C902B1BBD}</ProjectGuid>
+    <ProjectGuid>{F3CCC7F2-2089-439D-8C8E-EF3AD0A3CD53}</ProjectGuid>
     <RootNamespace>ScruffyDuck</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>Insomnomicon</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
