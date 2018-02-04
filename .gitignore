@@ -4,9 +4,6 @@
 [Ii]nt/
 .vs/
 
-# Exception for SFML
-!*/SFML/*.lib
-
 # Prerequisites
 *.d
 
@@ -39,3 +36,6 @@
 *.exe
 *.out
 *.app
+
+# Exception for SFML
+!**/SFML/*
