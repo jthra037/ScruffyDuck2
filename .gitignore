@@ -1,6 +1,6 @@
 # Visual studio shit
 [Dd]ebug/
-[Bb]uilds/
+#[Bb]uilds/
 [Ii]ntermediate/
 .vs/
 
