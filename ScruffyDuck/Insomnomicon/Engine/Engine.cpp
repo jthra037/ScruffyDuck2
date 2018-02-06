@@ -2,6 +2,7 @@
 
 void Engine::Start()
 {
+	_gameState = Engine::Playing;
 	if (_gameState == Uninitialized)
 		return;
 
