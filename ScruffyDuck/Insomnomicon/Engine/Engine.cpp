@@ -1,4 +1,9 @@
 #include "Engine.h"
+#include <iostream>
+
+Engine::GameState Engine::_gameState = Engine::Playing;
+sf::RenderWindow* Engine::_mainWindow;
+
 
 void Engine::Start()
 {
@@ -6,7 +11,7 @@ void Engine::Start()
 	if (_gameState == Uninitialized)
 		return;
 
-	_mainWindow.create(sf::VideoMode(1024, 768, 32), "GameName Here");
+	_mainWindow->create(sf::VideoMode(1024, 768, 32), "GameName Here");
 	_gameState = Engine::Playing;
 
 	while (!IsExiting())
@@ -14,33 +19,31 @@ void Engine::Start()
 		GameLoop();
 	}
 
-	_mainWindow.close();
+	_mainWindow->close();
 }
 
 void Engine::Initialize()
 {
-	puts("Not actually doing init right now");
+	puts("Only thing we're init'ing is _mainWindow right now");
+	_mainWindow = new sf::RenderWindow();
 }
 
 bool Engine::IsExiting()
 {
-	return false;
+	return _gameState == GameState::Exiting;
 }
 
 void Engine::GameLoop()
 {
-	while (_mainWindow.isOpen())
+	sf::Event event;
+	while (_mainWindow->pollEvent(event))
 	{
-		sf::Event event;
-		while (_mainWindow.pollEvent(event))
+		if (event.type == sf::Event::Closed)
 		{
-			if (event.type == sf::Event::Closed)
-			{
-				_mainWindow.close();
-			}
+			_gameState = GameState::Exiting;
 		}
-
-		_mainWindow.clear();
-		_mainWindow.display();
 	}
+
+	_mainWindow->clear();
+	_mainWindow->display();
 }

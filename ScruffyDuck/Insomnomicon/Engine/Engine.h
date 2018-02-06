@@ -16,6 +16,6 @@ private:
 		ShowingMenu, Playing, Exiting };
 
 	static GameState _gameState;
-	static sf::RenderWindow _mainWindow;
+	static sf::RenderWindow* _mainWindow;
 };
 

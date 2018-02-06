@@ -39,3 +39,6 @@
 
 # Exception for SFML
 !/Lib/**
+
+# Exceptions for submitting stuff
+!/Builds/**
