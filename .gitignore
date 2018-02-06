@@ -1,7 +1,7 @@
 # Visual studio shit
 [Dd]ebug/
 #[Bb]uilds/
-[Ii]ntermediate/
+/[Ii]ntermediate/
 .vs/
 
 # Prerequisites
@@ -38,4 +38,4 @@
 *.app
 
 # Exception for SFML
-!**/SFML/**
+!/Lib/**
