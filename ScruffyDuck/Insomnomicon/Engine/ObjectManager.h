@@ -6,11 +6,9 @@ class ObjectManager
 {
 public:
 	ObjectManager();
-	~ObjectManager();
-	void Update();
-	void AddObject();
-	void AddObject(Object object);
-
-private:
+	//~ObjectManager();
+	Object Update(Object);
+	void AddObject(Object);
 	std::vector<Object> scene;
+
 };

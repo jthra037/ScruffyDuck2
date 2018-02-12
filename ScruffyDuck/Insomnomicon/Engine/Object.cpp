@@ -7,3 +7,8 @@ Object::Object(std::string newName = "Object",
 	parent = nullptr;
 	children = std::vector<Object>();
 }
+
+void Object::Update()
+{
+	//empty
+}
