@@ -10,4 +10,5 @@ private:
 	std::string name;
 	Object* parent;
 	std::vector<Object> children;
+	int id;
 };
