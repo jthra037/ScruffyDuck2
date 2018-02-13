@@ -2,7 +2,7 @@
 #include <iostream>
 
 Engine::GameState Engine::_gameState = Engine::Playing;
-ObjectManager* Engine::objectManager;
+ObjectManager* Engine::_objectManager;
 sf::RenderWindow* Engine::_mainWindow;
 
 void Engine::Start()
@@ -13,7 +13,7 @@ void Engine::Start()
 
 	_mainWindow->create(sf::VideoMode(1024, 768, 32), "GameName Here");
 	_gameState = Engine::Playing;
-	objectManager = new ObjectManager();
+	_objectManager = new ObjectManager();
 
 	while (!IsExiting())
 	{
@@ -43,7 +43,7 @@ void Engine::GameLoop()
 		{
 			_gameState = GameState::Exiting;
 		}
-		objectManager->Update();
+		_objectManager->Update();
 	}
 
 	_mainWindow->clear();

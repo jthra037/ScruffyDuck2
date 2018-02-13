@@ -18,6 +18,6 @@ private:
 
 	static GameState _gameState;
 	static sf::RenderWindow* _mainWindow;
-	static ObjectManager* objectManager;
+	static ObjectManager* _objectManager;
 };
 
