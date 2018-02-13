@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
+#include "ObjectManager.h"
 
 class Engine
 {
@@ -17,5 +18,6 @@ private:
 
 	static GameState _gameState;
 	static sf::RenderWindow* _mainWindow;
+	static ObjectManager* _objectManager;
 };
 
