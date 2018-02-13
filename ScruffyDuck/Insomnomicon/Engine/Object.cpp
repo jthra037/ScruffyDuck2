@@ -23,5 +23,5 @@ void Object::SetParent(Object* newParent)
 
 void Object::Update()
 {
-	printf("%d is updating...", id);
+	printf("%d is updating...\n", id);
 }

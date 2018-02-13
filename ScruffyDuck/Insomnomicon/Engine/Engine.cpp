@@ -53,9 +53,9 @@ void Engine::GameLoop()
 		{
 			_gameState = GameState::Exiting;
 		}
-		_objectManager->Update();
 	}
 
+	_objectManager->Update();
 	_mainWindow->clear();
 	_mainWindow->display();
 }
