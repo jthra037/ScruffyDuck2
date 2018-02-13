@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include <iostream>
+#include <cassert>
 
 Engine::GameState Engine::_gameState = Engine::Playing;
 ObjectManager* Engine::_objectManager;
@@ -20,10 +21,12 @@ void Engine::Start()
 	Object* third = new Object(second);
 	Object* fourth = new Object(third);
 	
-	_objectManager->AddObject(*first);
-	_objectManager->AddObject(*second);
-	_objectManager->AddObject(*third);
-	_objectManager->AddObject(*fourth);
+	_objectManager->AddObject(first);
+	_objectManager->AddObject(second);
+	_objectManager->AddObject(third);
+	_objectManager->AddObject(fourth);
+
+	assert(_objectManager->RemoveObject(second));
 
 	while (!IsExiting())
 	{
