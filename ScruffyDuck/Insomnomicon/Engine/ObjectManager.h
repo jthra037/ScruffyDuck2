@@ -7,7 +7,7 @@ class ObjectManager
 public:
 	ObjectManager();
 	//~ObjectManager();
-	Object Update(Object);
+	void Update();
 	void AddObject(Object);
 	std::vector<Object> scene;
 

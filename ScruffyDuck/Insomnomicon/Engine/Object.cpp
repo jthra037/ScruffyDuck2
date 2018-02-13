@@ -10,5 +10,10 @@ Object::Object(std::string newName = "Object",
 
 void Object::Update()
 {
-	//empty
+	printf("%s is updating...", name);
+
+	for(Object o : children)
+	{
+		o.Update();
+	}
 }

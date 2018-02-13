@@ -5,7 +5,7 @@ class Object
 {
 public: 
 	Object(std::string, Object*);
-	virtual void Update();
+	void Update();
 private:
 	std::string name;
 	Object* parent;

@@ -11,8 +11,11 @@ void ObjectManager::AddObject(Object newObject)
 	scene.push_back(newObject);
 }
 
-Object ObjectManager::Update(Object object)
+void ObjectManager::Update()
 {
-	object.Update();
-	return object;
+	printf("Object manager is trying to update...\n");
+	for (Object o : scene)
+	{
+		o.Update();
+	}
 }

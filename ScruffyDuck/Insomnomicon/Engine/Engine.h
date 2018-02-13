@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
-#include <algorithm>
 #include "ObjectManager.h"
 
 class Engine
