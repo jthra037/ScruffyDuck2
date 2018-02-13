@@ -4,10 +4,10 @@
 class Object
 {
 public: 
-	Object(std::string, Object*);
+	Object(Object*);
+	void SetParent(Object*);
 	void Update();
 private:
-	std::string name;
 	Object* parent;
 	std::vector<Object> children;
 	int id;
