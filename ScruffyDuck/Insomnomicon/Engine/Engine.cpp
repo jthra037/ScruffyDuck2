@@ -15,6 +15,16 @@ void Engine::Start()
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
 
+	Object* first = new Object();
+	Object* second = new Object();
+	Object* third = new Object(second);
+	Object* fourth = new Object(third);
+	
+	_objectManager->AddObject(*first);
+	_objectManager->AddObject(*second);
+	_objectManager->AddObject(*third);
+	_objectManager->AddObject(*fourth);
+
 	while (!IsExiting())
 	{
 		GameLoop();

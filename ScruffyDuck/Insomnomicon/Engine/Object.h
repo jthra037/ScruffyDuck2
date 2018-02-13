@@ -3,7 +3,8 @@
 
 class Object
 {
-public: 
+public:
+	Object();
 	Object(Object*);
 	void SetParent(Object*);
 	void Update();

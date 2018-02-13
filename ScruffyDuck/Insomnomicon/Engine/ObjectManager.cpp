@@ -6,7 +6,7 @@ ObjectManager::ObjectManager()
 	scene = std::vector<Object>();
 }
 
-void ObjectManager::AddObject(Object newObject)
+void ObjectManager::AddObject(Object& newObject)
 {
 	scene.push_back(newObject);
 }
