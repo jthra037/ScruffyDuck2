@@ -11,7 +11,7 @@ void ObjectManager::AddObject(Object* newObject)
 	scene.push_back(*newObject);
 }
 
-bool ObjectManager::RemoveObject(Object* object)
+/*bool ObjectManager::RemoveObject(Object* object)
 {
 
 	for (Object o : *object->GetChildren())
@@ -31,7 +31,7 @@ bool ObjectManager::RemoveObject(Object* object)
 
 	scene.erase(it);
 	return true;
-}
+}*/
 
 
 

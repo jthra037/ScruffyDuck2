@@ -10,6 +10,6 @@ public:
 	//~ObjectManager();
 	void Update();
 	void AddObject(Object*);
-	bool RemoveObject(Object*);
+	//bool RemoveObject(Object*);
 	std::vector<Object> scene;
 };
