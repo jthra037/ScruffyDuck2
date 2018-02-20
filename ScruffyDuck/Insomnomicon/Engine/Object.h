@@ -3,11 +3,16 @@
 
 class Object
 {
-public: 
-	Object(std::string, Object*);
+public:
+	Object();
+	Object(Object*);
+	bool operator== (const  Object&);
+	void SetParent(Object*);
 	void Update();
+	std::vector<Object>* GetChildren();
 private:
-	std::string name;
+	void AddChild(Object*);
 	Object* parent;
 	std::vector<Object> children;
+	int id;
 };

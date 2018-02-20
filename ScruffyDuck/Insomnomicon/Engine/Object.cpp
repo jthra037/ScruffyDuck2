@@ -1,19 +1,44 @@
 #include "Object.h"
 
-Object::Object(std::string newName = "Object", 
-	Object* thisParent = nullptr)
+static int _id = 0;
+
+Object::Object()
 {
-	name = newName;
 	parent = nullptr;
+	id = _id++;
 	children = std::vector<Object>();
+}
+
+Object::Object(Object* thisParent)
+{
+	SetParent(thisParent);
+	id = _id++;
+	children = std::vector<Object>();
+}
+
+bool Object::operator==(const Object& object)
+{
+	//printf("%d : %d\n", id, object.id);
+	return id == object.id;
+}
+
+void Object::SetParent(Object* newParent)
+{
+	parent = newParent;
+	parent->AddChild(this);
 }
 
 void Object::Update()
 {
-	printf("%s is updating...", name);
+	printf("%d is updating\n", id);
+}
 
-	for(Object o : children)
-	{
-		o.Update();
-	}
+std::vector<Object>* Object::GetChildren()
+{
+	return &children;
+}
+
+void Object::AddChild(Object* object)
+{
+	children.push_back(*object);
 }
