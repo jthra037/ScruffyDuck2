@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include <iostream>
+#include <cassert>
 
 Engine::GameState Engine::_gameState = Engine::Playing;
 ObjectManager* Engine::_objectManager;
@@ -14,6 +15,8 @@ void Engine::Start()
 	_mainWindow->create(sf::VideoMode(1024, 768, 32), "GameName Here");
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
+
+	//assert(_objectManager->RemoveObject(second));
 
 	while (!IsExiting())
 	{
@@ -43,9 +46,9 @@ void Engine::GameLoop()
 		{
 			_gameState = GameState::Exiting;
 		}
-		_objectManager->Update();
 	}
 
+	_objectManager->Update();
 	_mainWindow->clear();
 	_mainWindow->display();
 }
