@@ -16,7 +16,16 @@ void Engine::Start()
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
 
-	//assert(_objectManager->RemoveObject(second));
+	//Object _obj1 = new Object();
+	//Object _obj2 = new Object();
+	//Object* obj1 = &_obj1;
+	//Object* obj2 = &_obj2;
+
+	//_objectManager->AddObject(obj1);
+	//_objectManager->AddObject(obj2);
+
+	//Component* _comp1 = new Component();
+	//Component* comp1 = &_comp1;
 
 	while (!IsExiting())
 	{

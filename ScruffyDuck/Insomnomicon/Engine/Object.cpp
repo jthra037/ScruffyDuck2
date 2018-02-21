@@ -1,19 +1,21 @@
 #include "Object.h"
 
-static int _id = 0;
+static int _objid = 0;
 
 Object::Object()
 {
 	parent = nullptr;
-	id = _id++;
+	id = _objid++;
 	children = std::vector<Object>();
+	components = std::vector<Component>();
 }
 
 Object::Object(Object* thisParent)
 {
 	SetParent(thisParent);
-	id = _id++;
+	id = _objid++;
 	children = std::vector<Object>();
+	components = std::vector<Component>();
 }
 
 bool Object::operator==(const Object& object)
@@ -42,3 +44,11 @@ void Object::AddChild(Object* object)
 {
 	children.push_back(*object);
 }
+
+/*
+void Object::AttachComponent(Component* comp)
+{
+	comp->SetOwner(this);
+	components.push_back(*comp);
+}
+*/
