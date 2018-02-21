@@ -16,21 +16,16 @@ void Engine::Start()
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
 
-	//Object* obj1 = new Object();
-	//Object* obj2 = new Object();
-	//Object* obj1 = &_obj1;
-	//Object* obj2 = &_obj2;
+	Object* obj1 = new Object();
+	Object* obj2 = new Object();
 
-	//Component* comp1 = new Component();
-	//obj1->AttachComponent(comp1);
-	//obj2->AttachComponent(new Component());
-	//obj1->AttachComponent(new Component());
-	//
-	//_objectManager->AddObject(obj1);
-	//_objectManager->AddObject(obj2);
-
-
-
+	Component* comp1 = new Component();
+	obj1->AttachComponent(comp1);
+	obj2->AttachComponent(new Component());
+	obj1->AttachComponent(new Component());
+	
+	_objectManager->AddObject(obj1);
+	_objectManager->AddObject(obj2);
 
 	while (!IsExiting())
 	{

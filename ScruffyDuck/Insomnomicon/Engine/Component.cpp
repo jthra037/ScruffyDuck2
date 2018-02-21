@@ -1,10 +1,11 @@
 #include "Component.h"
+#include "Object.h"
 
 static int _compid;
 
 Component::Component()
 {
-	//owner = nullptr;
+	owner = nullptr;
 	id = _compid++;
 }
 
@@ -19,12 +20,12 @@ void Component::Update()
 	printf("%d is updating\n", id);
 }
 
-//void Component::SetOwner(Object* own)
-//{
-//	owner = own;
-//}
-//
-//Object Component::GetOwner()
-//{
-//	return owner;
-//}
+void Component::SetOwner(Object* own)
+{
+	owner = own;
+}
+
+Object Component::GetOwner()
+{
+	return owner;
+}
