@@ -6,16 +6,16 @@ Object::Object()
 {
 	parent = nullptr;
 	id = _objid++;
-	children = std::vector<Object>();
-	components = std::vector<Component>();
+	children = std::vector<Object*>();
+	components = std::vector<Component*>();
 }
 
 Object::Object(Object* thisParent)
 {
 	SetParent(thisParent);
 	id = _objid++;
-	children = std::vector<Object>();
-	components = std::vector<Component>();
+	children = std::vector<Object*>();
+	components = std::vector<Component*>();
 }
 
 bool Object::operator==(const Object& object)
@@ -32,23 +32,36 @@ void Object::SetParent(Object* newParent)
 
 void Object::Update()
 {
-	printf("%d is updating\n", id);
+	//printf("%d is updating\n", id);
+	for (Component* c : components)
+	{
+		c->Update();
+	}
 }
 
-std::vector<Object>* Object::GetChildren()
+std::vector<Object*>* Object::GetChildren()
 {
 	return &children;
 }
 
+
 void Object::AddChild(Object* object)
 {
-	children.push_back(*object);
+	children.push_back(object);
 }
 
-/*
+
 void Object::AttachComponent(Component* comp)
 {
-	comp->SetOwner(this);
-	components.push_back(*comp);
+	//comp->SetOwner(this);
+	components.push_back(comp);
 }
-*/
+
+void Object::RemoveComponent(Component *)
+{
+}
+
+std::vector<Component*>* Object::GetComponents()
+{
+	return nullptr;
+}

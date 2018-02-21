@@ -4,7 +4,7 @@ static int _compid;
 
 Component::Component()
 {
-	owner = nullptr;
+	//owner = nullptr;
 	id = _compid++;
 }
 
@@ -16,15 +16,15 @@ bool Component::operator==(const Component& comp)
 
 void Component::Update()
 {
-	printf("%d is updating\n", _compid);
+	printf("%d is updating\n", id);
 }
 
-void Component::SetOwner(Object* own)
-{
-	owner = own;
-}
-
-Object Component::GetOwner()
-{
-	return owner;
-}
+//void Component::SetOwner(Object* own)
+//{
+//	owner = own;
+//}
+//
+//Object Component::GetOwner()
+//{
+//	return owner;
+//}

@@ -10,15 +10,15 @@ public:
 	bool operator== (const  Object&);
 	void SetParent(Object*);
 	void Update();
-	//void AttachComponent(Component*);
-	//void RemoveComponent(Component*);
-	std::vector<Object>* GetChildren();
-	std::vector<Component>* GetComponents();
+	void AttachComponent(Component*);
+	void RemoveComponent(Component*);
+	std::vector<Object*>* GetChildren();
+	std::vector<Component*>* GetComponents();
 
 private:
 	void AddChild(Object*);
 	Object* parent;
-	std::vector<Object> children;
-	std::vector<Component> components;
+	std::vector<Object*> children;
+	std::vector<Component*> components;
 	int id;
 };
