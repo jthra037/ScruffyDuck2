@@ -12,8 +12,11 @@ public:
 	void Update();
 	void AttachComponent(Component*);
 	void RemoveComponent(Component*);
+
+	//Getters.
 	std::vector<Object*>* GetChildren();
 	std::vector<Component*>* GetComponents();
+	int GetId();
 
 private:
 	void AddChild(Object*);

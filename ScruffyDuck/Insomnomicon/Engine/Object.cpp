@@ -8,6 +8,8 @@ Object::Object()
 	id = _objid++;
 	children = std::vector<Object*>();
 	components = std::vector<Component*>();
+
+	printf("Created an object with id: %d \n", id);
 }
 
 Object::Object(Object* thisParent)
@@ -16,6 +18,8 @@ Object::Object(Object* thisParent)
 	id = _objid++;
 	children = std::vector<Object*>();
 	components = std::vector<Component*>();
+
+	printf("Created an object with id: %d, which is childed to object %d. \n", id, thisParent->GetId());
 }
 
 bool Object::operator==(const Object& object)
@@ -32,18 +36,12 @@ void Object::SetParent(Object* newParent)
 
 void Object::Update()
 {
-	//printf("%d is updating\n", id);
+	//printf("Object %d is updating. \n", id);
 	for (Component* c : components)
 	{
 		c->Update();
 	}
 }
-
-std::vector<Object*>* Object::GetChildren()
-{
-	return &children;
-}
-
 
 void Object::AddChild(Object* object)
 {
@@ -53,15 +51,31 @@ void Object::AddChild(Object* object)
 
 void Object::AttachComponent(Component* comp)
 {
-	//comp->SetOwner(this);
+	comp->SetOwner(this);
 	components.push_back(comp);
+
+	printf("Attached a component to object with id: %d \n", id);
 }
 
 void Object::RemoveComponent(Component *)
 {
 }
 
+#pragma region Getters
+
+int Object::GetId()
+{
+	return id;
+}
+
+std::vector<Object*>* Object::GetChildren()
+{
+	return &children;
+}
+
 std::vector<Component*>* Object::GetComponents()
 {
 	return nullptr;
 }
+
+#pragma endregion

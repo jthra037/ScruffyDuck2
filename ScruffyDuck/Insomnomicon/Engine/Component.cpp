@@ -7,17 +7,18 @@ Component::Component()
 {
 	owner = nullptr;
 	id = _compid++;
+
+	printf("Created a component with id: %d \n", id);
 }
 
 bool Component::operator==(const Component& comp)
 {
-	//printf("%d : %d\n", id, object.id);
 	return id == comp.id;
 }
 
 void Component::Update()
 {
-	printf("%d is updating\n", id);
+	//printf("Component %d is updating. \n", id);
 }
 
 void Component::SetOwner(Object* own)
@@ -28,4 +29,9 @@ void Component::SetOwner(Object* own)
 Object Component::GetOwner()
 {
 	return owner;
+}
+
+int Component::GetId()
+{
+	return id;
 }

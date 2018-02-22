@@ -10,7 +10,9 @@ public:
 	bool operator== (const Component&);
 	void Update();
 	void SetOwner(Object*);
+	
 	Object GetOwner();
+	int GetId();
 
 private:
 	Object* owner;

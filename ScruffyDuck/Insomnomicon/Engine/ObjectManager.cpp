@@ -9,6 +9,8 @@ ObjectManager::ObjectManager()
 void ObjectManager::AddObject(Object* newObject)
 {
 	scene.push_back(*newObject);
+
+	printf("Object %d added to manager. It will update. \n", newObject->GetId());
 }
 
 /*bool ObjectManager::RemoveObject(Object* object)

@@ -18,12 +18,13 @@ void Engine::Start()
 
 	Object* obj1 = new Object();
 	Object* obj2 = new Object();
+	Object* obj3 = new Object(obj2);
 
 	Component* comp1 = new Component();
 	obj1->AttachComponent(comp1);
-	obj2->AttachComponent(new Component());
 	obj1->AttachComponent(new Component());
-	
+	obj2->AttachComponent(new Component());
+
 	_objectManager->AddObject(obj1);
 	_objectManager->AddObject(obj2);
 
