@@ -7,21 +7,22 @@ class Object
 public:
 	Object();
 	Object(Object*);
-	bool operator== (const  Object&);
-	void SetParent(Object*);
+	bool operator== (const Object&);
 	void Update();
+	void AddParent(Object*);
+	void AddChild(Object*);
 	void AttachComponent(Component*);
 	void RemoveComponent(Component*);
 
 	//Getters.
+	int GetId();
+	Object* GetParent();
 	std::vector<Object*>* GetChildren();
 	std::vector<Component*>* GetComponents();
-	int GetId();
 
 private:
-	void AddChild(Object*);
+	int id;
 	Object* parent;
 	std::vector<Object*> children;
 	std::vector<Component*> components;
-	int id;
 };

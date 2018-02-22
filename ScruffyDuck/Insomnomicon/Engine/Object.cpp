@@ -14,7 +14,7 @@ Object::Object()
 
 Object::Object(Object* thisParent)
 {
-	SetParent(thisParent);
+	AddParent(thisParent);
 	id = _objid++;
 	children = std::vector<Object*>();
 	components = std::vector<Component*>();
@@ -28,7 +28,7 @@ bool Object::operator==(const Object& object)
 	return id == object.id;
 }
 
-void Object::SetParent(Object* newParent)
+void Object::AddParent(Object* newParent)
 {
 	parent = newParent;
 	parent->AddChild(this);
@@ -66,6 +66,11 @@ void Object::RemoveComponent(Component *)
 int Object::GetId()
 {
 	return id;
+}
+
+Object* Object::GetParent()
+{
+	return parent;
 }
 
 std::vector<Object*>* Object::GetChildren()

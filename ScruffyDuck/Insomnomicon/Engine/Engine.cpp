@@ -16,17 +16,26 @@ void Engine::Start()
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
 
+	Object* obj0 = new Object();
 	Object* obj1 = new Object();
-	Object* obj2 = new Object();
-	Object* obj3 = new Object(obj2);
+	Object* obj2 = new Object(obj1);
 
-	Component* comp1 = new Component();
-	obj1->AttachComponent(comp1);
-	obj1->AttachComponent(new Component());
-	obj2->AttachComponent(new Component());
+	printf("Obj0 address: %p \n", obj0);
+	printf("Obj1 address: %p \n", obj1);
+	printf("Obj2 address: %p \n", obj2);
+	printf("Obj2 parent's address: %p \n", obj2->GetParent());
+	printf("Obj1 child's address: %p \n", obj1->GetChildren()->front());
 
-	_objectManager->AddObject(obj1);
-	_objectManager->AddObject(obj2);
+
+	//Component* comp1 = new Component();
+	//obj1->AttachComponent(comp1);
+	//obj1->AttachComponent(new Component());
+	//obj2->AttachComponent(new Component());
+
+	_objectManager->AddObject(obj0);
+	//_objectManager->AddObject(obj1);
+	//_objectManager->AddObject(obj2);
+	//_objectManager->AddObject(new Object(new Object()));
 
 	while (!IsExiting())
 	{
