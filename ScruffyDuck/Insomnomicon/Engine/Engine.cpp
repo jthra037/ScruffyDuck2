@@ -6,6 +6,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <memory>
+#include <stdexcept>
 
 bool IsOnlyInstance(LPCTSTR gameTitle);
 bool CheckStorage(const DWORDLONG diskSpaceNeeded);
@@ -18,11 +20,9 @@ sf::RenderWindow* Engine::_mainWindow;
 
 void Engine::Start()
 {
-	_gameState = Engine::Playing;
 	if (_gameState == Uninitialized)
 		return;
 
-	_mainWindow->create(sf::VideoMode(1024, 768, 32), "Galaga");
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager();
 
@@ -58,7 +58,22 @@ void Engine::Start()
 void Engine::Initialize()
 {
 	_mainWindow = new sf::RenderWindow();
-	
+	_mainWindow->create(sf::VideoMode(1024, 768, 32), "Galaga");
+	sf::Texture splashTex;
+	if (splashTex.loadFromFile("Assets/Textures/splash.png"))
+	{
+		sf::Sprite splash;
+		splash.setTexture(splashTex);
+
+		_mainWindow->clear();
+		_mainWindow->draw(splash);
+		_mainWindow->display();
+	}
+	else
+	{
+		std::cout << "Failed to load splash screen." << std::endl << std::endl;
+	}
+
 	std::cout << "Is this the only instance of the game?" << std::endl;
 	if (IsOnlyInstance("Galaga"))
 	{
@@ -92,6 +107,7 @@ void Engine::Initialize()
 
 	std::cout << std::endl << "CPU Speed: " << ReadArchitectureType() << std::endl << std::endl;
 
+	_gameState = Engine::Playing;
 	Engine::Start();
 }
 
