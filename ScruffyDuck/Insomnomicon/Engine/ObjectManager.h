@@ -7,9 +7,7 @@ class ObjectManager
 {
 public:
 	ObjectManager();
-	//~ObjectManager();
 	void Update();
 	void AddObject(Object*);
-	//bool RemoveObject(Object*);
-	std::vector<Object> scene;
+	std::vector<Object*> scene;
 };

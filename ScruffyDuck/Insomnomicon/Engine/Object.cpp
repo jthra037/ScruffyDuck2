@@ -1,19 +1,25 @@
 #include "Object.h"
 
-static int _id = 0;
+static int _objid = 0;
 
 Object::Object()
 {
 	parent = nullptr;
-	id = _id++;
-	children = std::vector<Object>();
+	id = _objid++;
+	children = std::vector<Object*>();
+	components = std::vector<Component*>();
+
+	printf("Created an object with id: %d \n", id);
 }
 
 Object::Object(Object* thisParent)
 {
-	SetParent(thisParent);
-	id = _id++;
-	children = std::vector<Object>();
+	AddParent(thisParent);
+	id = _objid++;
+	children = std::vector<Object*>();
+	components = std::vector<Component*>();
+
+	printf("Created an object with id: %d, which is childed to object %d. \n", id, thisParent->GetId());
 }
 
 bool Object::operator==(const Object& object)
@@ -22,7 +28,7 @@ bool Object::operator==(const Object& object)
 	return id == object.id;
 }
 
-void Object::SetParent(Object* newParent)
+void Object::AddParent(Object* newParent)
 {
 	parent = newParent;
 	parent->AddChild(this);
@@ -30,15 +36,51 @@ void Object::SetParent(Object* newParent)
 
 void Object::Update()
 {
-	printf("%d is updating\n", id);
-}
-
-std::vector<Object>* Object::GetChildren()
-{
-	return &children;
+	//printf("Object %d is updating. \n", id);
+	for (Component* c : components)
+	{
+		c->Update();
+	}
 }
 
 void Object::AddChild(Object* object)
 {
-	children.push_back(*object);
+	children.push_back(object);
 }
+
+
+void Object::AttachComponent(Component* comp)
+{
+	comp->SetOwner(this);
+	components.push_back(comp);
+
+	printf("Attached a component to object with id: %d \n", id);
+}
+
+void Object::RemoveComponent(Component *)
+{
+}
+
+#pragma region Getters
+
+int Object::GetId()
+{
+	return id;
+}
+
+Object* Object::GetParent()
+{
+	return parent;
+}
+
+std::vector<Object*>* Object::GetChildren()
+{
+	return &children;
+}
+
+std::vector<Component*>* Object::GetComponents()
+{
+	return nullptr;
+}
+
+#pragma endregion

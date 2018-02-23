@@ -3,12 +3,27 @@
 
 ObjectManager::ObjectManager()
 {
-	scene = std::vector<Object>();
+	scene = std::vector<Object*>();
 }
 
 void ObjectManager::AddObject(Object* newObject)
 {
-	scene.push_back(*newObject);
+	//Make sure the object isn't already added to the scene graph.
+	bool alreadyAdded = false;
+	for (Object* o : scene)
+	{
+		if (o->GetId() == newObject->GetId())
+		{
+			printf("Game object with id: %d already exists in scene graph.", newObject->GetId());
+			alreadyAdded = true;
+		}
+	}
+	
+	if (!alreadyAdded)
+	{
+		scene.push_back(newObject);
+		printf("Object %d added to manager. \n", newObject->GetId());
+	}
 }
 
 /*bool ObjectManager::RemoveObject(Object* object)
@@ -38,8 +53,8 @@ void ObjectManager::AddObject(Object* newObject)
 void ObjectManager::Update()
 {
 	//printf("Object manager is trying to update...\n");
-	for (Object o : scene)
+	for (Object* o : scene)
 	{
-		o.Update();
+		o->Update();
 	}
 }
