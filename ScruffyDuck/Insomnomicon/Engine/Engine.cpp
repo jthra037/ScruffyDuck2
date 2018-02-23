@@ -33,9 +33,9 @@ void Engine::Start()
 	//obj2->AttachComponent(new Component());
 
 	_objectManager->AddObject(obj0);
-	//_objectManager->AddObject(obj1);
-	//_objectManager->AddObject(obj2);
-	//_objectManager->AddObject(new Object(new Object()));
+	_objectManager->AddObject(obj1);
+	_objectManager->AddObject(obj2);
+	_objectManager->AddObject(new Object(new Object()));
 
 	while (!IsExiting())
 	{
