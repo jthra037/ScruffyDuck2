@@ -36,6 +36,9 @@ void Engine::Start()
 	printf("Obj2 parent's address: %p \n", obj2->GetParent());
 	printf("Obj1 child's address: %p \n", obj1->GetChildren()->front());
 
+	printf("Obj1 position: %p\n", obj1->transform->getPosition());
+	obj1->transform->setPosition(3, 7);
+	printf("Obj1 position: %p\n", obj1->transform->getPosition());
 
 	//Component* comp1 = new Component();
 	//obj1->AttachComponent(comp1);
@@ -46,6 +49,7 @@ void Engine::Start()
 	_objectManager->AddObject(obj1);
 	_objectManager->AddObject(obj2);
 	_objectManager->AddObject(new Object(new Object()));
+	
 
 	while (!IsExiting())
 	{

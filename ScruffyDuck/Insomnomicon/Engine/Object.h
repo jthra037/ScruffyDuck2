@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "OTransform.h"
 #include <vector>
 
 class Object
@@ -13,6 +14,8 @@ public:
 	void AddChild(Object*);
 	void AttachComponent(Component*);
 	void RemoveComponent(Component*);
+
+	OTransform* transform;
 
 	//Getters.
 	int GetId();
