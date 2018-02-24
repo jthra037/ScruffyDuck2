@@ -8,6 +8,7 @@ Object::Object()
 	id = _objid++;
 	children = std::vector<Object*>();
 	components = std::vector<Component*>();
+	transform = new OTransform(this);
 
 	printf("Created an object with id: %d \n", id);
 }
@@ -18,6 +19,7 @@ Object::Object(Object* thisParent)
 	id = _objid++;
 	children = std::vector<Object*>();
 	components = std::vector<Component*>();
+	transform = new OTransform(this);
 
 	printf("Created an object with id: %d, which is childed to object %d. \n", id, thisParent->GetId());
 }
