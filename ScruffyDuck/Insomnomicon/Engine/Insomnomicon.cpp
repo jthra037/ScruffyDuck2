@@ -1,22 +1,10 @@
-#include <SFML\Graphics.hpp>
+#pragma once
+#include "Engine.h"
 
 int main()
 {
-	sf::RenderWindow window({ 1024, 769 }, "Hello WORLD");
-	window.setFramerateLimit(30);
+	Engine::Initialize();
+	//Engine::Start();		//Moved to end of Initialize().
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-		}
-
-		window.clear();
-		window.display();
-	}
+	return 0;
 }
