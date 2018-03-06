@@ -39,6 +39,8 @@ void Object::AddParent(Object* newParent)
 void Object::Update()
 {
 	//printf("Object %d is updating. \n", id);
+	// make sure to actually apply the transforms
+
 	for (Component* c : components)
 	{
 		c->Update();

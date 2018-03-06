@@ -24,7 +24,7 @@ void Engine::Start()
 		return;
 
 	_gameState = Engine::Playing;
-	_objectManager = new ObjectManager();
+	_objectManager = new ObjectManager(); // Move this to Initialization
 
 	Object* obj0 = new Object();
 	Object* obj1 = new Object();

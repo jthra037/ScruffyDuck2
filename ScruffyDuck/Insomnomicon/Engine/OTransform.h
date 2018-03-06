@@ -3,6 +3,7 @@
 
 class Object;
 
+// This seriously locks us down to SFML
 class OTransform : public sf::Transformable
 {
 public:
@@ -10,4 +11,5 @@ public:
 	Object* GetOwner();
 private:
 	Object* owner;
+	// We may need a local component here also
 };
