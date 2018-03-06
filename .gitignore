@@ -42,3 +42,9 @@
 
 # Exceptions for submitting stuff
 !/Builds/**
+
+# Mac Files
+.DS_Store
+
+# Unity Stuff
+*Unity*/Library
