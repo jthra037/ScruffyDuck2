@@ -38,6 +38,7 @@
     <ClInclude Include="Engine\ObjectManager.h" />
     <ClInclude Include="Engine\OTransform.h" />
     <ClInclude Include="Engine\RigidBody2D.h" />
+    <ClInclude Include="Engine\Utilities.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

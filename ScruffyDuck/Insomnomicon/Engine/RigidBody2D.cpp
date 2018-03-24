@@ -4,11 +4,33 @@ RigidBody2D::RigidBody2D()
 {
 }
 
-RigidBody2D::RigidBody2D(Object o)
+RigidBody2D::RigidBody2D(Object* o)
 {
-	gameObject = o;
+	SetOwner(o); // this isn't great, should come up with a new Component constructor
 }
 
 RigidBody2D::~RigidBody2D()
 {
+}
+
+void RigidBody2D::OnUpdate(const float dt)
+{
+	if (Mass == 0.0f)
+	{
+		return;
+	}
+
+	NSimp::Vec2<float> F;
+	for each (NSimp::Vec2<float> force in forces)
+	{
+		F += force;
+	}
+
+	for each (NSimp::Vec2<float> impulse in impulses)
+	{
+		F += impulse;
+	}
+	impulses.clear();
+
+	accel = F / Mass;
 }
