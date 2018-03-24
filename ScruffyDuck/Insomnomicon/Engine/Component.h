@@ -8,7 +8,7 @@ class Component
 public:
 	Component();
 	bool operator== (const Component&);
-	void Update();
+	virtual void Update(const float& = 0) = 0;
 	void SetOwner(Object*);
 	
 	Object GetOwner();

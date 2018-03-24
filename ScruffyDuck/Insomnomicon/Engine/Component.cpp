@@ -16,11 +16,6 @@ bool Component::operator==(const Component& comp)
 	return id == comp.id;
 }
 
-void Component::Update()
-{
-	//printf("Component %d is updating. \n", id);
-}
-
 void Component::SetOwner(Object* own)
 {
 	owner = own;
