@@ -53,47 +53,41 @@ namespace NSimp
 			return *this;
 		}
 
-		static Vec2<T> operator+(Vec2<T> lhs, const Vec2<T>& rhs)
+		Vec2<T>& operator/=(const float& value)
 		{
-			lhs += rhs;
-			return lhs;
+			x /= value;
+			y /= value;
+
+			return *this;
 		}
 
+		Vec2<T>& operator*=(const float& value)
+		{
+			x *= value;
+			y *= value;
 
-		//Vec2<T>& operator/(int value)
-		//{
-		//	Vec2<T> temp(const this);
-		//	temp.x /= value;
-		//	temp.y /= value;
-		//
-		//	return *temp;
-		//}
-
-		//Vec2<T>& operator/(float value)
-		//{
-		//	Vec2<T> temp(this);
-		//	temp.x /= value;
-		//	temp.y /= value;
-		//
-		//	return *temp;
-		//}
-		//
-		//Vec2<T>& operator*(int value)
-		//{
-		//	Vec2<T> temp(this);
-		//	temp.x *= value;
-		//	temp.y *= value;
-		//
-		//	return *temp;
-		//}
-		//
-		//Vec2<T>& operator*(float value)
-		//{
-		//	Vec2<T> temp(this);
-		//	temp.x *= value;
-		//	temp.y *= value;
-		//
-		//	return *temp;
-		//}
+			return *this;
+		}
 	};
+
+	template <typename T>
+	inline Vec2<T> operator+(Vec2<T> lhs, const Vec2<T>& rhs)
+	{
+		lhs += rhs;
+		return lhs;
+	}
+	
+	template <typename T>
+	inline Vec2<T> operator*(Vec2<T> lhs, const float& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+	
+	template <typename T>
+	inline Vec2<T> operator/(Vec2<T> lhs, const float& rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
 }

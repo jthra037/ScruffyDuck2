@@ -13,8 +13,10 @@ RigidBody2D::~RigidBody2D()
 {
 }
 
-void RigidBody2D::OnUpdate(const float dt)
+void RigidBody2D::Update(const float& dt)
 {
+	printf("dt is %f", dt);
+
 	if (Mass == 0.0f)
 	{
 		return;
@@ -33,4 +35,6 @@ void RigidBody2D::OnUpdate(const float dt)
 	impulses.clear();
 
 	accel = F / Mass;
+	velocity += accel * dt;
+	position += velocity * dt;
 }

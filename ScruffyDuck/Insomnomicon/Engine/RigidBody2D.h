@@ -16,7 +16,8 @@ public:
 
 	void AddForce(const NSimp::Vec2<float>& force) { forces.push_back(force); }
 	void AddImpulse(const NSimp::Vec2<float>& impulse) { impulses.push_back(impulse); }
-	void OnUpdate(const float dt);
+	//void Update(const float dt);
+	void Update(const float&);
 
 	const NSimp::Vec2<float>& GetVelocity() { return velocity; }
 	const NSimp::Vec2<float>& GetPosition() { return position; }
