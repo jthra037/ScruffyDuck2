@@ -1,0 +1,24 @@
+#pragma once
+#include "Component.h"
+#include <SFML\Graphics.hpp>
+#include <stdio.h>
+#include "Engine.h"
+
+class SpriteRenderer :
+	public Component
+{
+public:
+	SpriteRenderer(Object*);
+	SpriteRenderer(Object*, const char*);
+	SpriteRenderer(Object*, const sf::Texture&);
+	~SpriteRenderer();
+
+	void LoadTexture(const char*);
+
+	void Update(const float&);
+
+private:
+	sf::Texture _tex;
+	sf::Sprite _sprite;
+};
+

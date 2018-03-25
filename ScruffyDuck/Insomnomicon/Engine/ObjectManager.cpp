@@ -53,8 +53,15 @@ void ObjectManager::AddObject(Object* newObject)
 void ObjectManager::Update()
 {
 	//printf("Object manager is trying to update...\n");
+	// replace this later
+	// children could update before parent
 	for (Object* o : scene)
 	{
 		o->Update();
 	}
+
+	//for (std::vector<Object*>::iterator it = scene.begin(); it != scene.end(); ++it)
+	//{
+	//	(*it)->Update();
+	//}
 }

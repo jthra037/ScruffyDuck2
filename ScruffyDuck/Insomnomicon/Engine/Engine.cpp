@@ -8,6 +8,7 @@
 #include <string>
 #include <memory>
 #include <stdexcept>
+#include "_AllComponents.h"
 
 bool IsOnlyInstance(LPCTSTR gameTitle);
 bool CheckStorage(const DWORDLONG diskSpaceNeeded);
@@ -26,30 +27,10 @@ void Engine::Start()
 	_gameState = Engine::Playing;
 	_objectManager = new ObjectManager(); // Move this to Initialization
 
-	Object* obj0 = new Object();
-	Object* obj1 = new Object();
-	Object* obj2 = new Object(obj1);
-
-	printf("Obj0 address: %p \n", obj0);
-	printf("Obj1 address: %p \n", obj1);
-	printf("Obj2 address: %p \n", obj2);
-	printf("Obj2 parent's address: %p \n", obj2->GetParent());
-	printf("Obj1 child's address: %p \n", obj1->GetChildren()->front());
-
-	printf("Obj1 position: %p\n", obj1->transform->getPosition());
-	obj1->transform->setPosition(3, 7);
-	printf("Obj1 position: %p\n", obj1->transform->getPosition());
-
-	//Component* comp1 = new Component();
-	//obj1->AttachComponent(comp1);
-	//obj1->AttachComponent(new Component());
-	//obj2->AttachComponent(new Component());
-
-	_objectManager->AddObject(obj0);
-	_objectManager->AddObject(obj1);
-	_objectManager->AddObject(obj2);
-	_objectManager->AddObject(new Object(new Object()));
+	Object* obj0 = new Object();	
+	obj0->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
 	
+	_objectManager->AddObject(obj0);
 
 	while (!IsExiting())
 	{
@@ -100,7 +81,7 @@ void Engine::Initialize()
 	}
 
 	std::cout << std::endl << "Checking Memory..." << std::endl;
-	if (CheckMemory(8000000000, 4000000000))	//8gb, 4gb
+	if (CheckMemory(1000000000, 1000000000))	//8gb, 4gb
 	{
 		std::cout << "... Memory is sufficient." << std::endl;
 	}
@@ -113,6 +94,11 @@ void Engine::Initialize()
 
 	_gameState = Engine::Playing;
 	Engine::Start();
+}
+
+sf::RenderWindow& Engine::GetWindow()
+{
+	return *_mainWindow;
 }
 
 bool Engine::IsExiting()
@@ -212,6 +198,8 @@ bool CheckMemory(const DWORDLONG physicalRAMNeeded, const DWORDLONG virtualRAMNe
 		std::cout << ("CheckMemory Failure : Not enough contiguousmemory.") << std::endl;
 		return false;
 	}
+
+	return true;
 }
 
 std::string ReadArchitectureType()

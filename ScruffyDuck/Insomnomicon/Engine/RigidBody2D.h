@@ -8,7 +8,6 @@ class RigidBody2D :
 	public Component
 {
 public:
-	RigidBody2D();
 	RigidBody2D(Object*);
 	~RigidBody2D();
 

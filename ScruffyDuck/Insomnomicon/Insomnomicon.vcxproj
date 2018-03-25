@@ -28,16 +28,19 @@
     <ClCompile Include="Engine\ObjectManager.cpp" />
     <ClCompile Include="Engine\OTransform.cpp" />
     <ClCompile Include="Engine\RigidBody2D.cpp" />
+    <ClCompile Include="Engine\SpriteRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider2D.h" />
     <ClInclude Include="Engine\Collider.h" />
     <ClInclude Include="Engine\Component.h" />
+    <ClInclude Include="Engine\_AllComponents.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\Object.h" />
     <ClInclude Include="Engine\ObjectManager.h" />
     <ClInclude Include="Engine\OTransform.h" />
     <ClInclude Include="Engine\RigidBody2D.h" />
+    <ClInclude Include="Engine\SpriteRenderer.h" />
     <ClInclude Include="Engine\Utilities.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -2,7 +2,9 @@
 
 
 
-Collider::Collider()
+Collider::Collider(Object* o) :
+	Component(o),
+	attachedRigidBody2D(o)
 {
 }
 

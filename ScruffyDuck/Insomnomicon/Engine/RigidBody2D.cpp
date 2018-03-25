@@ -1,12 +1,7 @@
 #include "RigidBody2D.h"
 
-RigidBody2D::RigidBody2D()
+RigidBody2D::RigidBody2D(Object* o) : Component(o)
 {
-}
-
-RigidBody2D::RigidBody2D(Object* o)
-{
-	SetOwner(o); // this isn't great, should come up with a new Component constructor
 }
 
 RigidBody2D::~RigidBody2D()

@@ -6,7 +6,7 @@ class Object;
 class Component
 {
 public:
-	Component();
+	Component(Object*);
 	bool operator== (const Component&);
 	virtual void Update(const float& = 0) = 0;
 	void SetOwner(Object*);

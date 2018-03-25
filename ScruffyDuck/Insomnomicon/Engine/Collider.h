@@ -6,7 +6,7 @@ class Collider :
 	public Component
 {
 public:
-	Collider();
+	Collider(Object*);
 	~Collider();
 	
 	RigidBody2D attachedRigidBody2D;

@@ -3,10 +3,10 @@
 
 static int _compid;
 
-Component::Component()
+Component::Component(Object* own)
 {
-	owner = nullptr;
 	id = _compid++;
+	SetOwner(own);
 
 	printf("Created a component with id: %d \n", id);
 }

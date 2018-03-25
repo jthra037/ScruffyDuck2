@@ -16,7 +16,7 @@ public:
 	void RemoveComponent(Component*);
 
 	OTransform* transform;
-	sf::Transform differentialTransform;
+	sf::Transform worldTransform;
 
 	//Getters.
 	int GetId();
