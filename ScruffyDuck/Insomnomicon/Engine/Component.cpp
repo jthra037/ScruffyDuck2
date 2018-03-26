@@ -21,7 +21,7 @@ void Component::SetOwner(Object* own)
 	owner = own;
 }
 
-Object Component::GetOwner()
+Object* Component::GetOwner()
 {
 	return owner;
 }

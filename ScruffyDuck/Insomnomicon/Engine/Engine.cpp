@@ -29,8 +29,14 @@ void Engine::Start()
 
 	Object* obj0 = new Object();	
 	obj0->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
-	
+
+	Object* obj1 = new Object();
+	obj1->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
+	obj1->AddParent(obj0);
+	obj0->transform->move(sf::Vector2<float>(200, 10));
+
 	_objectManager->AddObject(obj0);
+	_objectManager->AddObject(obj1);
 
 	while (!IsExiting())
 	{
@@ -117,8 +123,8 @@ void Engine::GameLoop()
 		}
 	}
 
-	_objectManager->Update();
 	_mainWindow->clear();
+	_objectManager->Update();
 	_mainWindow->display();
 }
 

@@ -11,7 +11,7 @@ public:
 	virtual void Update(const float& = 0) = 0;
 	void SetOwner(Object*);
 	
-	Object GetOwner();
+	Object* GetOwner();
 	int GetId();
 
 private:

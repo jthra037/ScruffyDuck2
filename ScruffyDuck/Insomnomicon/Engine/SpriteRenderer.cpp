@@ -22,8 +22,7 @@ SpriteRenderer::~SpriteRenderer()
 
 void SpriteRenderer::Update(const float& dt)
 {
-	_sprite.setPosition(GetOwner().transform->getPosition());
-
+	_sprite.setPosition(GetOwner()->worldTransform);
 	Engine::GetWindow().draw(_sprite);
 }
 

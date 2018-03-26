@@ -40,16 +40,16 @@ void Object::Update()
 {
 	//printf("Object %d is updating. \n", id);
 	// make sure to actually apply the transforms
-//	sf::Transform pt = parent != nullptr ?
-//		parent->worldTransform :
-//		sf::Transform::Identity;
-//
-//	sf::Transform t = transform->getTransform();
-//	worldTransform = t * pt;
-//
+	sf::Transform pt = parent != nullptr ?
+		parent->worldTransform :
+		sf::Transform::Identity;
+
+	sf::Transform t = transform->getTransform();
+	worldTransform = t * pt;
+
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
-		it.Update();
+		(*it)->Update();
 	}
 }
 
