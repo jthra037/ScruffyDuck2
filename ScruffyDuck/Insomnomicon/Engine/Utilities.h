@@ -20,6 +20,40 @@ namespace NSimp
 			y = yStarting;
 			z = zStarting;
 		}
+		
+		Vec3(const Vec3<T>& incoming)
+		{
+			x = incoming.x;
+			y = incoming.y;
+			z = incoming.z;
+		}
+
+		Vec3<T>& operator+=(const Vec3<T>& value)
+		{
+			x += value.x;
+			y += value.y;
+			z += value.z;
+
+			return *this;
+		}
+
+		Vec3<T>& operator/=(const float& value)
+		{
+			x /= value;
+			y /= value;
+			z /= value;
+
+			return *this;
+		}
+
+		Vec3<T>& operator*=(const float& value)
+		{
+			x *= value;
+			y *= value;
+			z *= value;
+
+			return *this;
+		}
 	};
 
 	template <typename T>
@@ -86,6 +120,27 @@ namespace NSimp
 	
 	template <typename T>
 	inline Vec2<T> operator/(Vec2<T> lhs, const float& rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	template <typename T>
+	inline Vec3<T> operator+(Vec3<T> lhs, const Vec3<T>& rhs)
+	{
+		lhs += rhs;
+		return lhs;
+	}
+
+	template <typename T>
+	inline Vec3<T> operator*(Vec3<T> lhs, const float& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	template <typename T>
+	inline Vec3<T> operator/(Vec3<T> lhs, const float& rhs)
 	{
 		lhs /= rhs;
 		return lhs;
