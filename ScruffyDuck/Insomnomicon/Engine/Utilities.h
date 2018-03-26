@@ -79,6 +79,12 @@ namespace NSimp
 			y = incoming.y;
 		}
 
+		Vec2(const Vec3<T>& incoming)
+		{
+			x = incoming.x;
+			y = incoming.y;
+		}
+
 		Vec2<T>& operator+=(const Vec2<T>& value)
 		{
 			x += value.x;

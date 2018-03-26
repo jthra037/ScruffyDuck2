@@ -22,8 +22,7 @@ SpriteRenderer::~SpriteRenderer()
 
 void SpriteRenderer::Update(const float& dt)
 {
-	_sprite.setPosition(GetOwner()->worldTransform);
-	Engine::GetWindow().draw(_sprite);
+	Engine::GetWindow().draw(_sprite, GetOwner()->worldTransform);
 }
 
 void SpriteRenderer::LoadTexture(const char* path)
