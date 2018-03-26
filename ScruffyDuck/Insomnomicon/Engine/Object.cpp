@@ -45,7 +45,7 @@ void Object::Update()
 		sf::Transform::Identity;
 
 	sf::Transform t = transform->getTransform();
-	worldTransform = t * pt;
+	worldTransform = t.combine(pt);
 
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{

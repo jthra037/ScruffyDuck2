@@ -27,6 +27,7 @@
     <ClCompile Include="Engine\Object.cpp" />
     <ClCompile Include="Engine\ObjectManager.cpp" />
     <ClCompile Include="Engine\OTransform.cpp" />
+    <ClCompile Include="Engine\Physics.cpp" />
     <ClCompile Include="Engine\RigidBody2D.cpp" />
     <ClCompile Include="Engine\SpriteRenderer.cpp" />
   </ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="Engine\BoxCollider2D.h" />
     <ClInclude Include="Engine\Collider.h" />
     <ClInclude Include="Engine\Component.h" />
+    <ClInclude Include="Engine\Physics.h" />
     <ClInclude Include="Engine\_AllComponents.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\Object.h" />

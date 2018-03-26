@@ -21,4 +21,3 @@ private:
 	static GameState _gameState;
 	static ObjectManager* _objectManager;
 };
-
