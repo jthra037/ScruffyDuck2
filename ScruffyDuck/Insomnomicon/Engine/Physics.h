@@ -7,12 +7,18 @@
 class Physics
 {
 public:
-	static std::vector<RigidBody2D> RegisteredBodies;
+	static std::vector<RigidBody2D*> RegisteredBodies;
 
 	struct CollisionPair
 	{
 		RigidBody2D& bodyA;
 		RigidBody2D& bodyB;
+
+		CollisionPair(RigidBody2D& a, RigidBody2D& b) :
+			bodyA(a),
+			bodyB(b)
+		{
+		}
 	};
 
 	struct CollisionInfo
