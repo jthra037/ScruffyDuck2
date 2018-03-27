@@ -21,7 +21,7 @@ private:
 	enum GameState { Uninitialized, ShowingSplash, Paused,
 		ShowingMenu, Playing, Exiting };
 
-	static sf::RenderWindow _mainWindow;
+	static sf::RenderWindow* _mainWindow;
 	static GameState _gameState;
 	static ObjectManager* _objectManager;
 	static Scene* _scene;

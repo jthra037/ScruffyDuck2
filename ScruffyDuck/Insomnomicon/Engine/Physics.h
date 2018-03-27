@@ -2,7 +2,8 @@
 #include <vector>
 #include <map>
 #include "Utilities.h"
-#include "RigidBody2D.h"
+
+class RigidBody2D;
 
 class Physics
 {
@@ -41,3 +42,7 @@ private:
 	static void IntegrateBodies(const float& dt);
 };
 
+inline bool operator<(const Physics::CollisionPair &lhs, const Physics::CollisionPair &rhs)
+{
+	return lhs.bodyA != rhs.bodyA || lhs.bodyB != rhs.bodyB || lhs.bodyA != rhs.bodyB;
+}

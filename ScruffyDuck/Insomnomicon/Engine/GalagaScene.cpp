@@ -16,7 +16,8 @@ void GalagaScene::BuildScene()
 	obj0->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
 
 	Object* obj1 = new Object();
-	obj1->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
+	obj1->AttachComponent(new SpriteRenderer(obj1, "Assets/Textures/PlayTemp.png"));
+	obj1->AttachComponent(new RigidBody2D(obj1));
 	obj1->AddParent(obj0);
 	obj0->transform->move(0, 10);
 	obj1->transform->move(10, 100);

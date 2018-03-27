@@ -1,4 +1,5 @@
 #include "Physics.h"
+#include "RigidBody2D.h"
 
 std::map<Physics::CollisionPair, Physics::CollisionInfo> Physics::collisions;
 std::vector<RigidBody2D*> Physics::RegisteredBodies;
@@ -28,11 +29,11 @@ void Physics::CheckCollisions()
 			// Seperating Axis Theorem Test
 			if (gap.x < 0 && gap.y < 0)
 			{
-				//printf("We got a collision here!\n");
-				//if (collisions.find(pair) != collisions.end())
-				//{
-				//	collisions.erase(pair);
-				//}
+				printf("We got a collision here!\n");
+				if (collisions.find(pair) != collisions.end())
+				{
+					collisions.erase(pair);
+				}
 				
 				if (gap.x > gap.y)
 				{
@@ -58,12 +59,12 @@ void Physics::CheckCollisions()
 					}
 					info.penetration = gap.y;
 				}
-				//collisions.insert(std::pair<CollisionPair, CollisionInfo>(pair, info));
+				collisions.insert(std::pair<CollisionPair, CollisionInfo>(pair, info));
 			}
-			//else if (collisions.find(pair) != collisions.end())
-			//{
-			//	collisions.erase(pair);
-			//}
+			else if (collisions.find(pair) != collisions.end())
+			{
+				collisions.erase(pair);
+			}
 		}
 	}
 }

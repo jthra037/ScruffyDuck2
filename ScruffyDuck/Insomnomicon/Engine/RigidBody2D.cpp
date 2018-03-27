@@ -1,10 +1,12 @@
 #include "RigidBody2D.h"
 #include "Object.h"
+#include "Physics.h"
 
 RigidBody2D::RigidBody2D(Object* o, float mass) : 
 	Component(o),
 	Mass(mass)
 {
+	Physics::RegisteredBodies.push_back(this);
 }
 
 RigidBody2D::~RigidBody2D()
