@@ -10,7 +10,8 @@
 #include <memory>
 #include <stdexcept>
 #include "GalagaScene.h"
-#include "_AllComponents.h"
+#include "ObjectManager.h"
+
 
 bool IsOnlyInstance(LPCTSTR gameTitle);
 bool CheckStorage(const DWORDLONG diskSpaceNeeded);
@@ -19,7 +20,7 @@ std::string ReadArchitectureType();
 
 Engine::GameState Engine::_gameState = Engine::Playing;
 ObjectManager* Engine::_objectManager;
-sf::RenderWindow* Engine::_mainWindow;
+sf::RenderWindow Engine::_mainWindow;
 Scene* Engine::_scene;
 
 void Engine::Start()
@@ -35,22 +36,22 @@ void Engine::Start()
 		GameLoop();
 	}
 
-	_mainWindow->close();
+	_mainWindow.close();
 }
 
 void Engine::Initialize()
 {
-	_mainWindow = new sf::RenderWindow();
-	_mainWindow->create(sf::VideoMode(1024, 768, 32), "Galaga");
+	//_mainWindow = new sf::RenderWindow();
+	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Galaga");
 	sf::Texture splashTex;
 	if (splashTex.loadFromFile("Assets/Textures/splash.png"))
 	{
 		sf::Sprite splash;
 		splash.setTexture(splashTex);
 
-		_mainWindow->clear();
-		_mainWindow->draw(splash);
-		_mainWindow->display();
+		_mainWindow.clear();
+		_mainWindow.draw(splash);
+		_mainWindow.display();
 	}
 	else
 	{
@@ -98,7 +99,7 @@ void Engine::Initialize()
 
 sf::RenderWindow& Engine::GetWindow()
 {
-	return *_mainWindow;
+	return _mainWindow;
 }
 
 bool Engine::IsExiting()
@@ -111,7 +112,7 @@ void Engine::GameLoop()
 
 
 	sf::Event event;
-	while (_mainWindow->pollEvent(event))
+	while (_mainWindow.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 		{
@@ -119,10 +120,10 @@ void Engine::GameLoop()
 		}
 	}
 
-	_mainWindow->clear();
+	_mainWindow.clear();
 	//_objectManager->Update();
 	_scene->Update(0.01f);
-	_mainWindow->display();
+	_mainWindow.display();
 }
 
 #pragma region Initialization Functions

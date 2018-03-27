@@ -1,5 +1,6 @@
 #include "SpriteRenderer.h"
-
+#include "Engine.h"
+#include "Object.h"
 
 SpriteRenderer::SpriteRenderer(Object* o) : Component(o)
 {

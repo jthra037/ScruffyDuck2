@@ -16,7 +16,7 @@ void Physics::CheckCollisions()
 	{
 		for (auto itB = itA; itB != RegisteredBodies.end(); ++itB)
 		{
-			CollisionPair pair = CollisionPair(*itA , *itB);
+			CollisionPair pair = { *itA , *itB };
 			CollisionInfo info;
 			
 			NSimp::Vec2<float> dist = (*itB)->GetPosition() - (*itA)->GetPosition();

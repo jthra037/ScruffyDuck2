@@ -1,5 +1,4 @@
 #pragma once
-#include "Object.h"
 #include "Component.h"
 #include "Utilities.h"
 #include <vector>

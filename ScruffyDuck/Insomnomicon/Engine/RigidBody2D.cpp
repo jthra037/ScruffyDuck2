@@ -1,4 +1,5 @@
 #include "RigidBody2D.h"
+#include "Object.h"
 
 RigidBody2D::RigidBody2D(Object* o, float mass) : 
 	Component(o),
