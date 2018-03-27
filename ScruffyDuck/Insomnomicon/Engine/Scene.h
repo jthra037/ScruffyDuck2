@@ -6,7 +6,7 @@ class Scene
 {
 public:
 	Scene();
-	virtual void Update(const float& = 0) = 0;
+	virtual void Update(const float&) = 0;
 	virtual void BuildScene() = 0;
 
 protected:

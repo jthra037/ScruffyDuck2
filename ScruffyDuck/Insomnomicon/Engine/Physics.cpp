@@ -16,7 +16,7 @@ void Physics::CheckCollisions()
 	{
 		for (auto itB = itA; itB != RegisteredBodies.end(); ++itB)
 		{
-			CollisionPair pair = CollisionPair(**itA , **itB);
+			CollisionPair pair = CollisionPair(*itA , *itB);
 			CollisionInfo info;
 			
 			NSimp::Vec2<float> dist = (*itB)->GetPosition() - (*itA)->GetPosition();
@@ -24,16 +24,16 @@ void Physics::CheckCollisions()
 			NSimp::Vec2<float> halfSizeB = ((*itB)->aabb.tRight - (*itB)->aabb.bLeft) / 2;
 			
 			NSimp::Vec2<float> gap(abs(dist.x), abs(dist.y));
-
+			
 			// Seperating Axis Theorem Test
 			if (gap.x < 0 && gap.y < 0)
 			{
-				printf("We got a collision here!\n");
-				if (collisions.find(pair) != collisions.end())
-				{
-					collisions.erase(pair);
-				}
-
+				//printf("We got a collision here!\n");
+				//if (collisions.find(pair) != collisions.end())
+				//{
+				//	collisions.erase(pair);
+				//}
+				
 				if (gap.x > gap.y)
 				{
 					if (dist.x > 0)
@@ -58,12 +58,12 @@ void Physics::CheckCollisions()
 					}
 					info.penetration = gap.y;
 				}
-				collisions.insert(std::pair<CollisionPair, CollisionInfo>(pair, info));
+				//collisions.insert(std::pair<CollisionPair, CollisionInfo>(pair, info));
 			}
-			else if (collisions.find(pair) != collisions.end())
-			{
-				collisions.erase(pair);
-			}
+			//else if (collisions.find(pair) != collisions.end())
+			//{
+			//	collisions.erase(pair);
+			//}
 		}
 	}
 }
@@ -75,7 +75,10 @@ void Physics::ResolveCollisions()
 
 void Physics::IntegrateBodies(const float& dt)
 {
-
+	for (RigidBody2D* rb2d : RegisteredBodies)
+	{
+		rb2d->Integrate(dt);
+	}
 }
 
 void Physics::PositionalCorrection(CollisionPair& c)

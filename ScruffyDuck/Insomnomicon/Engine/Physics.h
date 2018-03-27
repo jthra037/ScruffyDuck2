@@ -11,14 +11,17 @@ public:
 
 	struct CollisionPair
 	{
-		RigidBody2D& bodyA;
-		RigidBody2D& bodyB;
+		RigidBody2D* bodyA;
+		RigidBody2D* bodyB;
 
-		CollisionPair(RigidBody2D& a, RigidBody2D& b) :
+		CollisionPair(RigidBody2D* a, RigidBody2D* b) :
 			bodyA(a),
 			bodyB(b)
 		{
 		}
+
+		CollisionPair()
+		{}
 	};
 
 	struct CollisionInfo

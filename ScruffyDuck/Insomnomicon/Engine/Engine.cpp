@@ -121,7 +121,7 @@ void Engine::GameLoop()
 
 	_mainWindow->clear();
 	//_objectManager->Update();
-	_scene->Update();
+	_scene->Update(0.01f);
 	_mainWindow->display();
 }
 
