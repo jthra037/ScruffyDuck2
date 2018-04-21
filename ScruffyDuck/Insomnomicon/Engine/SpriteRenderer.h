@@ -1,8 +1,6 @@
 #pragma once
 #include "Component.h"
 #include <SFML\Graphics.hpp>
-#include <stdio.h>
-#include "Engine.h"
 
 class SpriteRenderer :
 	public Component

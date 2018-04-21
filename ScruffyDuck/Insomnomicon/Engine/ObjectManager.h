@@ -7,7 +7,7 @@ class ObjectManager
 {
 public:
 	ObjectManager();
-	void Update();
+	void Update(const float& = 0);
 	void AddObject(Object*);
 	std::vector<Object*> scene;
 };

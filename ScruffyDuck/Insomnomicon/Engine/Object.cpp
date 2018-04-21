@@ -36,7 +36,7 @@ void Object::AddParent(Object* newParent)
 	parent->AddChild(this);
 }
 
-void Object::Update()
+void Object::Update(const float& dt)
 {
 	//printf("Object %d is updating. \n", id);
 	// make sure to actually apply the transforms
@@ -45,11 +45,11 @@ void Object::Update()
 		sf::Transform::Identity;
 
 	sf::Transform t = transform->getTransform();
-	worldTransform = t * pt;
+	worldTransform = t.combine(pt);
 
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
-		(*it)->Update();
+		(*it)->Update(dt);
 	}
 }
 

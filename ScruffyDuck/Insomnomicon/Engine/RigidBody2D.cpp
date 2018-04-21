@@ -1,7 +1,12 @@
 #include "RigidBody2D.h"
+#include "Object.h"
+#include "Physics.h"
 
-RigidBody2D::RigidBody2D(Object* o) : Component(o)
+RigidBody2D::RigidBody2D(Object* o, float mass) : 
+	Component(o),
+	Mass(mass)
 {
+	Physics::RegisteredBodies.push_back(this);
 }
 
 RigidBody2D::~RigidBody2D()
@@ -10,7 +15,12 @@ RigidBody2D::~RigidBody2D()
 
 void RigidBody2D::Update(const float& dt)
 {
-	printf("dt is %f", dt);
+	// nothing here for now i guess
+}
+
+void RigidBody2D::Integrate(const float& dt)
+{
+	//printf("dt is %f", dt);
 
 	if (Mass == 0.0f)
 	{
@@ -27,9 +37,21 @@ void RigidBody2D::Update(const float& dt)
 	{
 		F += impulse;
 	}
+
+	if (IsAffectedByGravity)
+	{
+		// invert gravity in y as well
+		F += NSimp::Vec2<float>(Physics::Gravity);
+	}
+
 	impulses.clear();
 
 	accel = F / Mass;
 	velocity += accel * dt;
 	position += velocity * dt;
+
+
+	GetOwner()->transform->move(velocity.x, -velocity.y);
+	printf("Owner position is:%f, %f\n", GetOwner()->transform->getPosition().x,
+		GetOwner()->transform->getPosition().y);
 }

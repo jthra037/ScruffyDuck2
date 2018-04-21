@@ -1,4 +1,7 @@
 #include "Engine.h"
+#include "Physics.h"
+#include "GalagaScene.h"
+#include "ObjectManager.h"
 #include <cassert>
 #include <Windows.h>
 #include <direct.h>
@@ -8,7 +11,7 @@
 #include <string>
 #include <memory>
 #include <stdexcept>
-#include "_AllComponents.h"
+
 
 bool IsOnlyInstance(LPCTSTR gameTitle);
 bool CheckStorage(const DWORDLONG diskSpaceNeeded);
@@ -18,6 +21,7 @@ std::string ReadArchitectureType();
 Engine::GameState Engine::_gameState = Engine::Playing;
 ObjectManager* Engine::_objectManager;
 sf::RenderWindow* Engine::_mainWindow;
+Scene* Engine::_scene;
 
 void Engine::Start()
 {
@@ -25,19 +29,7 @@ void Engine::Start()
 		return;
 
 	_gameState = Engine::Playing;
-	_objectManager = new ObjectManager(); // Move this to Initialization
-
-	Object* obj0 = new Object();	
-	obj0->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
-
-	Object* obj1 = new Object();
-	obj1->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
-	obj1->AddParent(obj0);
-	obj0->transform->move(0, 10);
-	obj1->transform->move(10, 100);
-
-	_objectManager->AddObject(obj1);
-	_objectManager->AddObject(obj0);
+	//_objectManager = new ObjectManager(); // Move this to Initialization
 
 	while (!IsExiting())
 	{
@@ -99,6 +91,8 @@ void Engine::Initialize()
 
 	std::cout << std::endl << "CPU Speed: " << ReadArchitectureType() << std::endl << std::endl;
 
+	_scene = new GalagaScene();
+
 	_gameState = Engine::Playing;
 	Engine::Start();
 }
@@ -115,6 +109,8 @@ bool Engine::IsExiting()
 
 void Engine::GameLoop()
 {
+
+
 	sf::Event event;
 	while (_mainWindow->pollEvent(event))
 	{
@@ -125,7 +121,9 @@ void Engine::GameLoop()
 	}
 
 	_mainWindow->clear();
-	_objectManager->Update();
+	//_objectManager->Update();
+	_scene->Update();
+	Physics::Update();
 	_mainWindow->display();
 }
 

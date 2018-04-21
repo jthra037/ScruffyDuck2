@@ -93,6 +93,14 @@ namespace NSimp
 			return *this;
 		}
 
+		Vec2<T>& operator-=(const Vec2<T>& value)
+		{
+			x -= value.x;
+			y -= value.y;
+
+			return *this;
+		}
+
 		Vec2<T>& operator/=(const float& value)
 		{
 			x /= value;
@@ -108,6 +116,14 @@ namespace NSimp
 
 			return *this;
 		}
+
+		Vec2<T>& operator*=(const Vec2<float>& incoming)
+		{
+			x *= incoming.x;
+			y *= incoming.y;
+
+			return *this;
+		}
 	};
 
 	template <typename T>
@@ -116,9 +132,23 @@ namespace NSimp
 		lhs += rhs;
 		return lhs;
 	}
+
+	template <typename T>
+	inline Vec2<T> operator-(Vec2<T> lhs, const Vec2<T>& rhs)
+	{
+		lhs -= rhs;
+		return lhs;
+	}
 	
 	template <typename T>
 	inline Vec2<T> operator*(Vec2<T> lhs, const float& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	template <typename T>
+	inline Vec2<T> operator*(Vec2<T> lhs, const Vec2<float>& rhs)
 	{
 		lhs *= rhs;
 		return lhs;

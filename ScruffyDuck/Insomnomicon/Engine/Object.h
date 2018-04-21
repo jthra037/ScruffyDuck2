@@ -9,7 +9,7 @@ public:
 	Object();
 	Object(Object*);
 	bool operator== (const Object&);
-	void Update();
+	void Update(const float& = 0);
 	void AddParent(Object*);
 	void AddChild(Object*);
 	void AttachComponent(Component*);
