@@ -2,6 +2,7 @@
 #include "Component.h"
 #include <functional>
 #include <vector>
+#include <SFML\Window\Mouse.hpp>
 
 typedef void(*Functor)(void);
 

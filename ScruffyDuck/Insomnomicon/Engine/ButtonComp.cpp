@@ -24,5 +24,9 @@ void ButtonComp::AddFunctor(Functor f)
 
 void ButtonComp::Update(const float& dt)
 {
+	if (sf::Mouse::isButtonPressed(
+		sf::Mouse::Button::Left))
+	{
 
+	}
 }
