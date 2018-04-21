@@ -56,6 +56,6 @@ protected:
 	NSimp::Vec2<float> velocity, position, accel;
 	std::vector<NSimp::Vec2<float>> forces, impulses;
 	
-	NSimp::Vec3<float> gravity = NSimp::Vec3<float>(0, -9.8f, 0);
+	//NSimp::Vec3<float> gravity = NSimp::Vec3<float>(0, -9.8f, 0);
 };
 

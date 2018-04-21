@@ -6,6 +6,6 @@ class GalagaScene :
 {
 public:
 	GalagaScene();
-	void Update(const float&);
+	//void Update(const float&);
 	void BuildScene();
 };

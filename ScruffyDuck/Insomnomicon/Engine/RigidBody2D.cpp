@@ -41,14 +41,14 @@ void RigidBody2D::Integrate(const float& dt)
 	if (IsAffectedByGravity)
 	{
 		// invert gravity in y as well
-		F += NSimp::Vec2<float>(gravity);
+		F += NSimp::Vec2<float>(Physics::Gravity);
 	}
 
 	impulses.clear();
 
 	accel = F / Mass;
-	velocity += accel * 0.01;
-	position += velocity * 1;
+	velocity += accel * dt;
+	position += velocity * dt;
 
 
 	GetOwner()->transform->move(velocity.x, -velocity.y);

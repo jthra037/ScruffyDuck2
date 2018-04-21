@@ -9,6 +9,7 @@ class Physics
 {
 public:
 	static std::vector<RigidBody2D*> RegisteredBodies;
+	static const NSimp::Vec3<float> Gravity;
 
 	struct CollisionPair
 	{

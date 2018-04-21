@@ -50,14 +50,14 @@ void ObjectManager::AddObject(Object* newObject)
 
 
 
-void ObjectManager::Update()
+void ObjectManager::Update(const float& dt)
 {
 	//printf("Object manager is trying to update...\n");
 	// replace this later
 	// children could update before parent
 	for (Object* o : scene)
 	{
-		o->Update();
+		o->Update(dt);
 	}
 
 	//for (std::vector<Object*>::iterator it = scene.begin(); it != scene.end(); ++it)

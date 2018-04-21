@@ -4,6 +4,8 @@
 std::map<Physics::CollisionPair, Physics::CollisionInfo> Physics::collisions;
 std::vector<RigidBody2D*> Physics::RegisteredBodies;
 
+const NSimp::Vec3<float> Physics::Gravity = NSimp::Vec3<float>(0, -0.03, 0);
+
 void Physics::Update(const float& dt)
 {
 	CheckCollisions();

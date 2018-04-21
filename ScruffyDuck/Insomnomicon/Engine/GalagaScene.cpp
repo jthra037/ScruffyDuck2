@@ -5,11 +5,6 @@ GalagaScene::GalagaScene()
 	BuildScene();
 }
 
-void GalagaScene::Update(const float& dt)
-{
-	_objectManager->Update();
-}
-
 void GalagaScene::BuildScene()
 {
 	Object* obj0 = new Object();
@@ -21,6 +16,7 @@ void GalagaScene::BuildScene()
 	obj1->AddParent(obj0);
 	obj0->transform->move(0, 10);
 	obj1->transform->move(10, 100);
+	obj0->transform->scale(0.5f, 0.8f);
 
 	_objectManager->AddObject(obj1);
 	_objectManager->AddObject(obj0);
