@@ -2,6 +2,7 @@
 #include "Physics.h"
 #include "GalagaScene.h"
 #include "ObjectManager.h"
+#include "SceneManager.h"
 #include <cassert>
 #include <Windows.h>
 #include <direct.h>
@@ -21,7 +22,7 @@ std::string ReadArchitectureType();
 Engine::GameState Engine::_gameState = Engine::Playing;
 ObjectManager* Engine::_objectManager;
 sf::RenderWindow* Engine::_mainWindow;
-Scene* Engine::_scene;
+SceneManager* Engine::_sceneManager = new SceneManager();
 
 void Engine::Start()
 {
@@ -91,7 +92,8 @@ void Engine::Initialize()
 
 	std::cout << std::endl << "CPU Speed: " << ReadArchitectureType() << std::endl << std::endl;
 
-	_scene = new GalagaScene();
+	_sceneManager->SceneList.push_back(new GalagaScene("Main"));
+	_sceneManager->ActiveScene = _sceneManager->SceneList[0];
 
 	_gameState = Engine::Playing;
 	Engine::Start();
@@ -122,7 +124,7 @@ void Engine::GameLoop()
 
 	_mainWindow->clear();
 	//_objectManager->Update();
-	_scene->Update();
+	_sceneManager->ActiveScene->Update();
 	Physics::Update();
 	_mainWindow->display();
 }

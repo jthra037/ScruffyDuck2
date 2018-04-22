@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include "Physics.h"
-Scene::Scene()
+Scene::Scene(const char* newName) : name(newName)
 {
 	_objectManager = new ObjectManager();
 	runtime = timer.restart();

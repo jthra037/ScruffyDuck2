@@ -5,7 +5,7 @@ class GalagaScene :
 	public Scene
 {
 public:
-	GalagaScene();
+	GalagaScene(const char* = "GalagaScene");
 	//void Update(const float&);
 	void BuildScene();
 };

@@ -5,10 +5,12 @@
 class Scene
 {
 public:
-	Scene();
+	//Scene();
+	Scene(const char* = "Scene");
 	virtual void Update(const float& = 0);
 	virtual void BuildScene() = 0;
 	sf::Time GetRuntime();
+	const char* name;
 
 protected:
 	ObjectManager* _objectManager;

@@ -1,6 +1,6 @@
 #include "GalagaScene.h"
 
-GalagaScene::GalagaScene()
+GalagaScene::GalagaScene(const char* newName) : Scene(newName)
 {
 	BuildScene();
 }
