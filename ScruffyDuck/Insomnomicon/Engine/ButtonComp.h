@@ -3,6 +3,7 @@
 #include <functional>
 #include <vector>
 #include <SFML\Window\Mouse.hpp>
+#include "SFML\Graphics\Transform.hpp"
 
 typedef void(*Functor)(void);
 
@@ -16,6 +17,8 @@ public:
 	void OnClicked();
 	void Update(const float&);
 	void AddFunctor(Functor);
+
+	sf::Transform localTransform;
 private:
 	std::vector<Functor> functorList;
 

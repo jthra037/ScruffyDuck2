@@ -52,6 +52,6 @@ void RigidBody2D::Integrate(const float& dt)
 
 
 	GetOwner()->transform->move(velocity.x, -velocity.y);
-	printf("Owner position is:%f, %f\n", GetOwner()->transform->getPosition().x,
-		GetOwner()->transform->getPosition().y);
+	//printf("Owner position is:%f, %f\n", GetOwner()->transform->getPosition().x,
+	//	GetOwner()->transform->getPosition().y);
 }

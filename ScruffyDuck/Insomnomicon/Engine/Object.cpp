@@ -1,4 +1,5 @@
 #include "Object.h"
+#include <type_traits>
 
 static int _objid = 0;
 
@@ -90,6 +91,21 @@ std::vector<Object*>* Object::GetChildren()
 
 std::vector<Component*>* Object::GetComponents()
 {
+	return nullptr;
+}
+
+template<typename T>
+T* Object::GetComponent()
+{
+	for each (Component* c in components)
+	{
+		T* returnComp = dynamic_cast<T*>(*c);
+		if (returnComp != NULL)
+		{
+			return returnComp;
+		}
+	}
+
 	return nullptr;
 }
 

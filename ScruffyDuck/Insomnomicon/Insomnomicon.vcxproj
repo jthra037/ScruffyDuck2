@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider2D.cpp" />
+    <ClCompile Include="Engine\ButtonComp.cpp" />
     <ClCompile Include="Engine\Collider.cpp" />
     <ClCompile Include="Engine\Component.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -36,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider2D.h" />
+    <ClInclude Include="Engine\ButtonComp.h" />
     <ClInclude Include="Engine\Collider.h" />
     <ClInclude Include="Engine\Component.h" />
     <ClInclude Include="Engine\GalagaScene.h" />

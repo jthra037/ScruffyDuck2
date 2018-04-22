@@ -10,6 +10,7 @@ public:
 	SpriteRenderer(Object*, const char*);
 	SpriteRenderer(Object*, const sf::Texture&);
 	~SpriteRenderer();
+	sf::Sprite _sprite;
 
 	void LoadTexture(const char*);
 
@@ -17,6 +18,5 @@ public:
 
 private:
 	sf::Texture _tex;
-	sf::Sprite _sprite;
 };
 

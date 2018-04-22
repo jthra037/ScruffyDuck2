@@ -24,6 +24,9 @@ public:
 	std::vector<Object*>* GetChildren();
 	std::vector<Component*>* GetComponents();
 
+	template<typename T>
+	T* GetComponent();
+
 private:
 	int id;
 	Object* parent;

@@ -1,4 +1,6 @@
 #include "GalagaScene.h"
+#include "Engine.h"
+#include "SceneManager.h"
 
 GalagaScene::GalagaScene(const char* newName) : Scene(newName)
 {
@@ -9,6 +11,17 @@ void GalagaScene::BuildScene()
 {
 	Object* obj0 = new Object();
 	obj0->AttachComponent(new SpriteRenderer(obj0, "Assets/Textures/PlayTemp.png"));
+	
+	ButtonComp* menuButton = new ButtonComp(obj0);
+	menuButton->AddFunctor([]() {
+		Scene* mainMenu = Engine::_sceneManager->GetScene("Menu");
+		if (mainMenu != nullptr)
+		{
+			Engine::_sceneManager->ActiveScene = mainMenu;
+		}
+	});
+
+	obj0->AttachComponent(menuButton);
 
 	Object* obj1 = new Object();
 	obj1->AttachComponent(new SpriteRenderer(obj1, "Assets/Textures/PlayTemp.png"));
