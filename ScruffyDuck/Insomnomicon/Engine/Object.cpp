@@ -63,7 +63,7 @@ void Object::AddChild(Object* object)
 void Object::AttachComponent(Component* comp)
 {
 	comp->SetOwner(this);
-	components.insert({ typeid(comp), comp });
+	components[typeid(*comp)] = comp;
 
 	printf("Attached a component to object with id: %d \n", id);
 }

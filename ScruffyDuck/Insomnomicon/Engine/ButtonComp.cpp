@@ -11,6 +11,7 @@ ButtonComp::ButtonComp(Object* o) :
 	Component(o)
 {
 	localTransform = sf::Transform::Identity;
+	printf("Component %i is a button!\n", GetId());
 }
 
 ButtonComp::~ButtonComp()
@@ -32,6 +33,7 @@ void ButtonComp::AddFunctor(Functor f)
 
 void ButtonComp::Update(const float& dt)
 {
+
 	if (sf::Mouse::isButtonPressed(
 		sf::Mouse::Button::Left))
 	{
@@ -52,6 +54,8 @@ void ButtonComp::Update(const float& dt)
 			GetComponents()->
 			at(typeid(SpriteRenderer)))->
 			_sprite.getLocalBounds();
+
+		buttonRect = GetOwner()->worldTransform.transformRect(buttonRect);
 		
 		printf("Checking inside Rect(%f, %f, %f, %f)\n", buttonRect.left, buttonRect.top, buttonRect.width, buttonRect.height);
 		
