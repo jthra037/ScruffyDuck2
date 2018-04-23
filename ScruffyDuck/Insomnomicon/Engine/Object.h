@@ -2,6 +2,8 @@
 #include "Component.h"
 #include "OTransform.h"
 #include <vector>
+#include <unordered_map>
+#include <typeindex>
 
 class Object
 {
@@ -22,7 +24,7 @@ public:
 	int GetId();
 	Object* GetParent();
 	std::vector<Object*>* GetChildren();
-	std::vector<Component*>* GetComponents();
+	std::unordered_map<std::type_index, Component*>* GetComponents();
 
 	template<typename T>
 	T* GetComponent();
@@ -31,5 +33,5 @@ private:
 	int id;
 	Object* parent;
 	std::vector<Object*> children;
-	std::vector<Component*> components;
+	std::unordered_map<std::type_index, Component*> components;
 };

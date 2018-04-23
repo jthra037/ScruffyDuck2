@@ -2,6 +2,8 @@
 #include "Engine.h"
 #include "Object.h"
 #include "SpriteRenderer.h"
+#include <unordered_map>
+
 
 #include "SFML\Graphics\Rect.hpp"
 
@@ -44,7 +46,12 @@ void ButtonComp::Update(const float& dt)
 		//sf::Rect<float> buttonRect = sf::Rect<float>(0, 0, 1, 1);
 		//buttonRect = combinedTransform.transformRect(buttonRect);
 
-		sf::FloatRect buttonRect = GetOwner()->GetComponent<SpriteRenderer>()->_sprite.getLocalBounds();
+		//sf::FloatRect buttonRect = GetOwner()->GetComponent<SpriteRenderer>()->_sprite.getLocalBounds();
+		SpriteRenderer sr = nullptr;
+		sf::FloatRect buttonRect = dynamic_cast<SpriteRenderer*>(GetOwner()->
+			GetComponents()->
+			at(typeid(SpriteRenderer)))->
+			_sprite.getLocalBounds();
 		
 		printf("Checking inside Rect(%f, %f, %f, %f)\n", buttonRect.left, buttonRect.top, buttonRect.width, buttonRect.height);
 		

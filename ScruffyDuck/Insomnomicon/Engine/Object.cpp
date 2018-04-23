@@ -8,7 +8,7 @@ Object::Object()
 	parent = nullptr;
 	id = _objid++;
 	children = std::vector<Object*>();
-	components = std::vector<Component*>();
+	components = std::unordered_map<std::type_index, Component*>();
 	transform = new OTransform(this);
 
 	printf("Created an object with id: %d \n", id);
@@ -19,7 +19,7 @@ Object::Object(Object* thisParent)
 	AddParent(thisParent);
 	id = _objid++;
 	children = std::vector<Object*>();
-	components = std::vector<Component*>();
+	components = std::unordered_map<std::type_index, Component*>();
 	transform = new OTransform(this);
 
 	printf("Created an object with id: %d, which is childed to object %d. \n", id, thisParent->GetId());
@@ -50,7 +50,7 @@ void Object::Update(const float& dt)
 
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
-		(*it)->Update(dt);
+		it->second->Update(dt);
 	}
 }
 
@@ -63,13 +63,14 @@ void Object::AddChild(Object* object)
 void Object::AttachComponent(Component* comp)
 {
 	comp->SetOwner(this);
-	components.push_back(comp);
+	components.insert({ typeid(comp), comp });
 
 	printf("Attached a component to object with id: %d \n", id);
 }
 
 void Object::RemoveComponent(Component *)
 {
+
 }
 
 #pragma region Getters
@@ -89,9 +90,9 @@ std::vector<Object*>* Object::GetChildren()
 	return &children;
 }
 
-std::vector<Component*>* Object::GetComponents()
+std::unordered_map<std::type_index, Component*>* Object::GetComponents()
 {
-	return nullptr;
+	return &components;
 }
 
 template<typename T>
