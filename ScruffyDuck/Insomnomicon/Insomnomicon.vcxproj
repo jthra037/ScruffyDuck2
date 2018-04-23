@@ -26,6 +26,7 @@
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\GalagaScene.cpp" />
     <ClCompile Include="Engine\Insomnomicon.cpp" />
+    <ClCompile Include="Engine\MenuScene.cpp" />
     <ClCompile Include="Engine\Object.cpp" />
     <ClCompile Include="Engine\ObjectManager.cpp" />
     <ClCompile Include="Engine\OTransform.cpp" />
@@ -41,6 +42,7 @@
     <ClInclude Include="Engine\Collider.h" />
     <ClInclude Include="Engine\Component.h" />
     <ClInclude Include="Engine\GalagaScene.h" />
+    <ClInclude Include="Engine\MenuScene.h" />
     <ClInclude Include="Engine\Physics.h" />
     <ClInclude Include="Engine\Scene.h" />
     <ClInclude Include="Engine\SceneManager.h" />

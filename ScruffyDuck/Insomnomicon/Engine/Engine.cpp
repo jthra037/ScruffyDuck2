@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "Physics.h"
 #include "GalagaScene.h"
+#include "MenuScene.h"
 #include "ObjectManager.h"
 #include "SceneManager.h"
 #include <cassert>
@@ -93,6 +94,7 @@ void Engine::Initialize()
 	std::cout << std::endl << "CPU Speed: " << ReadArchitectureType() << std::endl << std::endl;
 
 	_sceneManager->SceneList.push_back(new GalagaScene("Main"));
+	_sceneManager->SceneList.push_back(new MenuScene("Menu"));
 	_sceneManager->ActiveScene = _sceneManager->SceneList[0];
 
 	_gameState = Engine::Playing;
