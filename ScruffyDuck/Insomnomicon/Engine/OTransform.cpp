@@ -6,6 +6,10 @@ OTransform::OTransform(Object* newOwner)
 	owner = newOwner;
 }
 
+OTransform::~OTransform()
+{
+}
+
 Object* OTransform::GetOwner()
 {
 	return owner;

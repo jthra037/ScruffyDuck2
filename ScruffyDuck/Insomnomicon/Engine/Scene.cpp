@@ -15,3 +15,15 @@ void Scene::Update(const float& dt)
 	_objectManager->Update(dt);
 	Physics::Update(dt);
 }
+
+sf::Time Scene::GetRuntime()
+{
+	return runtime;
+}
+
+void Scene::ResetScene()
+{
+	delete _objectManager;
+	_objectManager = new ObjectManager();
+	BuildScene();
+}

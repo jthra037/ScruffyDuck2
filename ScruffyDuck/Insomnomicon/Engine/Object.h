@@ -10,6 +10,7 @@ class Object
 public:
 	Object();
 	Object(Object*);
+	~Object();
 	bool operator== (const Object&);
 	void Update(const float& = 0);
 	void AddParent(Object*);
@@ -25,9 +26,6 @@ public:
 	Object* GetParent();
 	std::vector<Object*>* GetChildren();
 	std::unordered_map<std::type_index, Component*>* GetComponents();
-
-	template<typename T>
-	T* GetComponent();
 
 private:
 	int id;

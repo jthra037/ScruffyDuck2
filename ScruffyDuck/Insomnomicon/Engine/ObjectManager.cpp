@@ -6,6 +6,16 @@ ObjectManager::ObjectManager()
 	scene = std::vector<Object*>();
 }
 
+ObjectManager::~ObjectManager()
+{
+	for each (Object* o in scene)
+	{
+		delete o;
+	}
+
+	scene.clear();
+}
+
 void ObjectManager::AddObject(Object* newObject)
 {
 	//Make sure the object isn't already added to the scene graph.

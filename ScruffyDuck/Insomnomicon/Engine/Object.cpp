@@ -25,6 +25,24 @@ Object::Object(Object* thisParent)
 	printf("Created an object with id: %d, which is childed to object %d. \n", id, thisParent->GetId());
 }
 
+Object::~Object()
+{
+	//if (transform != nullptr)
+	//{
+	//	delete transform;
+	//}
+
+	for each (auto p in components)
+	{
+		delete p.second;
+	}
+
+	for each (Object* o in children)
+	{
+		delete o;
+	}
+}
+
 bool Object::operator==(const Object& object)
 {
 	//printf("%d : %d\n", id, object.id);
@@ -93,21 +111,6 @@ std::vector<Object*>* Object::GetChildren()
 std::unordered_map<std::type_index, Component*>* Object::GetComponents()
 {
 	return &components;
-}
-
-template<typename T>
-T* Object::GetComponent()
-{
-	for each (Component* c in components)
-	{
-		T* returnComp = dynamic_cast<T*>(*c);
-		if (returnComp != NULL)
-		{
-			return returnComp;
-		}
-	}
-
-	return nullptr;
 }
 
 #pragma endregion

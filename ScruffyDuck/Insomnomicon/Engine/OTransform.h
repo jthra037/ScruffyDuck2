@@ -8,6 +8,7 @@ class OTransform : public sf::Transformable
 {
 public:
 	OTransform(Object*);
+	~OTransform();
 	Object* GetOwner();
 private:
 	Object* owner;

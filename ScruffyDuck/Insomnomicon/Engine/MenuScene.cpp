@@ -1,4 +1,5 @@
 #include "MenuScene.h"
+#include "GalagaScene.h"
 #include "Engine.h"
 #include "SceneManager.h"
 
@@ -17,6 +18,7 @@ void MenuScene::BuildScene()
 		Scene* mainMenu = Engine::_sceneManager->GetScene("Main");
 		if (mainMenu != nullptr)
 		{
+			mainMenu = new GalagaScene("Main");
 			Engine::_sceneManager->ActiveScene = mainMenu;
 		}
 	});

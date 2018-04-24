@@ -12,6 +12,8 @@ public:
 	sf::Time GetRuntime();
 	const char* name;
 
+	void ResetScene();
+
 protected:
 	ObjectManager* _objectManager;
 
