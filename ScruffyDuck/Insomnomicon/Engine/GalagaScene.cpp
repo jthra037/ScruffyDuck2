@@ -20,17 +20,20 @@ void GalagaScene::BuildScene()
 			Engine::_sceneManager->ActiveScene = mainMenu;
 		}
 	});
-
+	
 	obj0->AttachComponent(menuButton);
+	obj0->transform->move(1025, 10);
+	obj0->transform->scale(0.5f, 0.8f);
+	
+	_objectManager->AddObject(obj0);
+
 
 	Object* obj1 = new Object();
-	obj1->AttachComponent(new SpriteRenderer(obj1, "Assets/Textures/PlayTemp.png"));
-	obj1->AttachComponent(new RigidBody2D(obj1));
-	obj1->AddParent(obj0);
-	obj0->transform->move(0, 10);
-	obj1->transform->move(10, 100);
-	obj0->transform->scale(0.5f, 0.8f);
+	obj1->AttachComponent(
+		new TronTroller(
+			obj1, sf::Vector2f(300, 300)));
 
-	_objectManager->AddObject(obj1);
 	_objectManager->AddObject(obj0);
+	_objectManager->AddObject(obj1);
+
 }
