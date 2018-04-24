@@ -35,13 +35,13 @@ void TronTroller::Update(const float& dt)
 	}
 
 	PollInputs();
-	//Move(dt);
+	Move(dt);
 	CheckCollisions();
 
-	for each (sf::RectangleShape* piece in body)
-	{
-		Engine::GetWindow().draw(*piece);
-	}
+	//for each (sf::RectangleShape* piece in body)
+	//{
+	//	Engine::GetWindow().draw(*piece);
+	//}
 }
 
 void TronTroller::Move(const float& dt)

@@ -22,8 +22,8 @@ void GalagaScene::BuildScene()
 	});
 	
 	obj0->AttachComponent(menuButton);
-	obj0->transform->move(1025, 10);
-	obj0->transform->scale(0.5f, 0.8f);
+	obj0->transform->move(924, 10);
+	obj0->transform->scale(0.25f, 0.4f);
 	
 	_objectManager->AddObject(obj0);
 
